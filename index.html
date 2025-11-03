@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Millor — Know It Better</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fcecec;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #d33;
+    }
+    header img {
+      height: 80px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #d33;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      background-color: #fff;
+      border-radius: 10px;
+      margin: 20px auto;
+      padding: 40px 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      color: #d33;
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    input, textarea, button, select {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #d33;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b22;
+    }
+    footer {
+      background-color: #fff;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #d33;
+    }
+    img.lesson {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Millor Logo" />
+    <nav>
+      <a href="#about" id="nav-about">Про нас</a>
+      <a href="#services" id="nav-services">Послуги</a>
+      <a href="#signup" id="nav-signup">Запис</a>
+      <a href="#feedback" id="nav-feedback">Відгуки</a>
+      <a href="#contact" id="nav-contact">Контакти</a>
+    </nav>
+  </header>
+
+  <section class="language">
+    <div class="container" style="text-align:center;">
+      <label for="lang">Виберіть мову / Choose language:</label><br />
+      <select onchange="changeLanguage(this.value)">
+        <option value="ua">Українська</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 id="about-title">Про нас</h2>
+      <p id="about-text">Millor — це освітній проєкт, створений підлітками, які допомагають дітям з навчанням.</p>
+      <img src="images/lesson.jpg" alt="Онлайн урок" class="lesson">
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 id="services-title">Наші послуги</h2>
+      <ul id="services-list">
+        <li>Репетиторство для учнів з 1 по 8 клас</li>
+        <li>Індивідуальні заняття з різних предметів</li>
+        <li>Допомога з домашніми завданнями</li>
+        <li>Підготовка до контрольних та іспитів</li>
+        <li>Онлайн-консультації</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="signup">
+    <div class="container">
+      <h2 id="signup-title">Запис на заняття</h2>
+      <form action="https://formspree.io/f/mnqgprby" method="POST">
+        <input type="text" name="name" id="name" placeholder="Ваше ім'я" required />
+        <input type="email" name="email" id="email" placeholder="Ваш email" required />
+        <button type="submit" id="register-btn">Записатися</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="feedback">
+    <div class="container">
+      <h2 id="feedback-title">Залишити відгук</h2>
+      <form action="https://formspree.io/f/mnqgprby" method="POST">
+        <input type="text" name="name" placeholder="Ваше ім'я" required />
+        <textarea name="review" id="review" rows="5" placeholder="Ваш відгук..." required></textarea>
+        <button type="submit" id="submit-btn">Надіслати</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 id="contact-title">Контакти</h2>
+      <p><strong>Адреса:</strong> Україна, м. Ужгород</p>
+      <p><strong>Телефон:</strong> +380669718149</p>
+      <p><strong>Email:</strong> lizaturanica@gmail.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Millor. Створено з любов'ю до освіти.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      ua: {
+        nav: ["Про нас", "Послуги", "Запис", "Відгуки", "Контакти"],
+        about: "Про нас",
+        aboutText: "Millor — це освітній проєкт, створений підлітками, які допомагають дітям з навчанням.",
+        services: "Наші послуги",
+        signup: "Запис на заняття",
+        feedback: "Залишити відгук",
+        contact: "Контакти",
+        namePlaceholder: "Ваше ім'я",
+        emailPlaceholder: "Ваш email",
+        reviewPlaceholder: "Ваш відгук...",
+        submit: "Надіслати",
+        register: "Записатися"
+      },
+      en: {
+        nav: ["About", "Services", "Sign Up", "Feedback", "Contact"],
+        about: "About Us",
+        aboutText: "Millor is an educational project created by teens who help children with learning.",
+        services: "Our Services",
+        signup: "Sign Up",
+        feedback: "Leave a Review",
+        contact: "Contact",
+        namePlaceholder: "Your Name",
+        emailPlaceholder: "Your Email",
+        reviewPlaceholder: "Your Review...",
+        submit: "Submit",
+        register: "Sign Up"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("nav-about").innerText = t.nav[0];
+      document.getElementById("nav-services").innerText = t.nav[1];
+      document.getElementById("nav-signup").innerText = t.nav[2];
+      document.getElementById("nav-feedback").innerText = t.nav[3];
+      document.getElementById("nav-contact").innerText = t.nav[4];
+      document.getElementById("about-title").innerText = t.about;
+      document.getElementById("about-text").innerText = t.aboutText;
+      document.getElementById("services-title").innerText = t.services;
+      document.getElementById("signup-title").innerText = t.signup;
+      document.getElementById("feedback-title").innerText = t.feedback;
+      document.getElementById("contact-title").innerText = t.contact;
+      document.getElementById("name").placeholder = t.namePlaceholder;
+      document.getElementById("email").placeholder = t.emailPlaceholder;
+      document.getElementById("review").placeholder = t.reviewPlaceholder;
+      document.getElementById("submit-btn").innerText = t.submit;
+      document.getElementById("register-btn").innerText = t.register;
+    }
+
+    window.onload = function () {
+      changeLanguage('ua');
+    };
+  </script>
+
+</body>
+</html>
+
